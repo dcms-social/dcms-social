@@ -111,9 +111,9 @@ elseif(!isset($err)){		/*
 mysql_query("UPDATE `user` SET `balls` = '".($user['balls']+1)."' ,`rating_tmp` = '".($user['rating_tmp']+1)."' WHERE `id` = '$user[id]' LIMIT 1");
 $_SESSION['message'] = 'Сообщение успешно добавлено';
 if (isset($user)){
-		$notifiacation=mysql_fetch_assoc(mysql_query("SELECT * FROM `notification_set` WHERE `id_user` = '".$post['id_user']."' LIMIT 1"));
+		$notifiacation=mysql_fetch_assoc(mysql_query("SELECT * FROM `notification_set` WHERE `id_user` = '$ank[id]' LIMIT 1"));
 			
-			if ($notifiacation['komm'] == 1 && $user['id_user'] != $ank['id'])
+			if ($notifiacation['komm'] == 1 && $user['id'] != $ank['id'])
 			mysql_query("INSERT INTO `notification` (`avtor`, `id_user`, `type`, `time`) VALUES ('$user[id]', '$ank[id]', 'stena', '$time')");
 		
 		}
