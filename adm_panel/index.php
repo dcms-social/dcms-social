@@ -55,12 +55,14 @@ if (user_access('adm_mysql'))echo "<div class='main'><img src='/style/icons/str.
 if (user_access('adm_mysql'))echo "<div class='main'><img src='/style/icons/str.gif' alt=''/> <a href='tables.php'>Заливка таблиц</a></div>\n";
 if (user_access('adm_themes'))echo "<div class='main'><img src='/style/icons/str.gif' alt=''/> <a href='themes.php'>Темы оформления</a></div>\n";
 
+if (file_exists(H.'sys/add/admin'))
+{
 $opdirbase=@opendir(H.'sys/add/admin');
 while ($filebase=@readdir($opdirbase))
 if (preg_match('#\.php$#i',$filebase))
 include_once(H.'sys/add/admin/'.$filebase);
 closedir($opdirbase);
-
+}
 }
 else
 {
