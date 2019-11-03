@@ -329,7 +329,7 @@ if ($type == 'stena_komm')
 	if ($post['read'] == 0) mysql_query("UPDATE `notification` SET `read` = '1' WHERE `id` = '$post[id]'");
 	echo status($avtor['id']) . group($avtor['id']). ' ';
 	echo user::nick($avtor['id'],1,1,1).' написал'.($avtor['pol']==0 ? 'a' : null).' у Вас на стене';
-	echo ''.$s1. vremja($post['time']). $s2.' ';
+	echo ' '.$s1. vremja($post['time']). $s2.' ';
 	echo "<div style='text-align:right;'><a href='?komm&amp;del=$post[id]&amp;page=$page'><img src='/style/icons/delete.gif' alt='*' /></a></div>"; }
 /*
 ===============================
