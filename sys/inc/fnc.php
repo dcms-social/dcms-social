@@ -97,6 +97,7 @@ mysql_query("UPDATE `cron` SET `time` = '$time' WHERE `id` = 'clear_tmp_dir'");
 if (function_exists('curl_init')) {
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, 'http://dcms-social.ru/curl.php?site=' . urlencode($_SERVER['HTTP_HOST']) . '&version=' . urlencode($set['dcms_version']) . '&title=' . urlencode($set['title']));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 $data = curl_exec($ch);
 curl_close($ch);}
 $od=opendir(H.'sys/tmp/');
